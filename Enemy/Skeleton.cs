@@ -10,6 +10,7 @@ public class Skeleton : Enemy, IDamageable
     public override void Init()
     {
         base.Init();
+        // assign health property to our enemy health 
     }
     public void Damage()
     {
