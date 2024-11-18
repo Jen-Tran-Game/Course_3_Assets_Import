@@ -4,21 +4,30 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    // varible to determine if the damage function can be called 
+    private bool _canDamage = true; 
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Hit: " + other.name);
 
-        IDamageable hit = other.GetComponent<IDamageable>();
 
+        IDamageable hit = other.GetComponent<IDamageable>();
         if (hit != null)
         {
-            //if can attack
-                hit.Damage(); 
-            // set that variable to false
+            if (_canDamage == true)
+            {
+                hit.Damage();
+                _canDamage = false;
+                StartCoroutine(ResetDamage());
+            }
         }
     }
 
     //coroutine to reset variable after 0.5f 
+    IEnumerator ResetDamage()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _canDamage = true; 
+    }
 
 }
