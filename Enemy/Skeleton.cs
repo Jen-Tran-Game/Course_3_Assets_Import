@@ -13,13 +13,23 @@ public class Skeleton : Enemy, IDamageable
         
         Health = base.health; 
     }
+
+    public override void Movement()
+    {
+        base.Movement();
+
+        float distance = Vector3.Distance(player.transform.localPosition, transform.localPosition);
+
+        Debug.Log("Distance: " + distance); 
+    }
+
     public void Damage()
     {
         Debug.Log("Damage()");     
         Health--;
         anim.SetTrigger("Hit");
-        isHit = true; 
-                    
+        isHit = true;
+        anim.SetBool("InCombat", true);             
         if (Health < 1)
         {
             Destroy(this.gameObject);
