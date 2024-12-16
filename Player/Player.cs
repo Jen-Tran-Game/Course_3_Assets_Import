@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     private PlayerAnimation _playerAnim;
     private SpriteRenderer _playerSprite;
     private SpriteRenderer _swordArcSprite; 
+
+    public int Health { get; set; }
     // Start is called before the first frame update
     void Start()
     {
@@ -114,5 +116,10 @@ public class Player : MonoBehaviour
         _resetJump = true;
         yield return new WaitForSeconds(0.1f);
         _resetJump = false; 
+    }
+
+    public void Damage()
+    {
+        Debug.Log("Player::Damage");
     }
 }
