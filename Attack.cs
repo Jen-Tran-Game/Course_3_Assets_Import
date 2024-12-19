@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour, IDamageable
+public class Attack : MonoBehaviour
 {
     private bool _canDamage = true; 
 

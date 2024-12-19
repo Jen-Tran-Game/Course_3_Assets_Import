@@ -26,12 +26,12 @@ public class Skeleton : Enemy, IDamageable
 
         //Debug.Log("Side: " + direction.x);
 
-        if (direction.x < 0 && anim.GetBool("InCombat") == true)
+        if (direction.x > 0 && anim.GetBool("InCombat") == true)
         {
             // face right
             sprite.flipX = false; 
         }
-        else if (direction.x > 0 && anim.GetBool("InCombat") == true)
+        else if (direction.x < 0 && anim.GetBool("InCombat") == true)
         {
             // face left
             sprite.flipX = true; 

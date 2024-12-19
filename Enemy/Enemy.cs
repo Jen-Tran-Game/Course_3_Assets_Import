@@ -79,10 +79,7 @@ public abstract class Enemy : MonoBehaviour
         {
             isHit = false;
             anim.SetBool("InCombat", false); 
-        }
-        //if greater than 2 units
-        //isHit = false
-        //InCombat = false
+        }     
     }
 
     
